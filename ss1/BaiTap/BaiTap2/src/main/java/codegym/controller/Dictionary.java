@@ -34,5 +34,5 @@ public class Dictionary {
         model.addAttribute("word2", word2);
         return "index";
     }
-    
+
 }
