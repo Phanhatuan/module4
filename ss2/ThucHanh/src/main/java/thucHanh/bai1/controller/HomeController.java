@@ -21,7 +21,7 @@ public class HomeController {
 
     @GetMapping(value = "/home")
     public String home() {
-        return "home";
+        return "/view/home";
     }
 
     @PostMapping(value = "/validate")
@@ -32,7 +32,7 @@ public class HomeController {
             return "home";
         }
         modelMap.addAttribute("email", email);
-        return "success";
+        return "/view/success";
     }
 
     private boolean validate(String regex) {

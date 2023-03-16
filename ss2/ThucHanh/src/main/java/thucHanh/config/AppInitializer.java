@@ -1,4 +1,4 @@
-package codegym.config;
+package thucHanh.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

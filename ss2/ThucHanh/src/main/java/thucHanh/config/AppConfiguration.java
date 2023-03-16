@@ -1,4 +1,4 @@
-package codegym.config;
+package thucHanh.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("codegym")
+@ComponentScan("thucHanh")
 public class AppConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
 
@@ -25,20 +25,9 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     @Bean
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setPrefix("/WEB-INF/view/");
+        bean.setPrefix("/WEB-INF/");
         bean.setSuffix(".jsp");
         return bean;
     }
 
-//    @Bean
-//    public StudentRepository getStudentRepository() {
-//        return new StudentRepositoryImpl();
-//    }
-//
-//    @Bean
-//    public StudentService getStudentService() {
-//        StudentServiceImpl service = new StudentServiceImpl();
-//        service.setStudentRepository(this.applicationContext.getBean(StudentRepository.class));
-//        return service;
-//    }
 }
