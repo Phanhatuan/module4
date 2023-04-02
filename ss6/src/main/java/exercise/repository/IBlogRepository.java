@@ -1,6 +1,7 @@
 package exercise.repository;
 
 import exercise.entity.Blog;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 

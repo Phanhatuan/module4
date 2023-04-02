@@ -1,9 +1,11 @@
 package exercise.service;
 
 import exercise.entity.Blog;
-import exercise.repository.BlogRepositoryImpl;
 import exercise.repository.IBlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,4 +38,5 @@ public class BlogServiceImpl implements IBlogService{
     public void delete(Blog blog) {
         blogRepository.delete(blog);
     }
+
 }

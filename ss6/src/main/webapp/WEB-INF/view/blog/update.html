@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/blog/update}" th:object="${blog}"
+      method="POST" novalidate="novalidate">
+    <table>
+        <td><input type="hidden" th:field="*{blogId}"/></td>
+        <tr>
+            <td>Content</td>
+            <td>
+                <input type="text" th:field="*{content}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>
+                <select name = "category_id">
+                    <option value=""></option>
+                    <option th:each="category : ${categories}"
+                            th:value="${category.categoryId}"
+                            th:text="${category.title}"
+                            th:selected="${category.title.equals(blog.category_id.title)}" />
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
