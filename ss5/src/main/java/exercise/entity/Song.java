@@ -1,6 +1,10 @@
 package exercise.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Song {
@@ -8,8 +12,16 @@ public class Song {
     @Id
     @Column(columnDefinition = "varchar(10)")
     private String id;
+    @NotBlank
+    @Size(max = 800, message = "Nhieu hon 800")
+    @Pattern(regexp = "[a-zA-Z0-9]+",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     private String name;
+    @NotEmpty
+    @Size(max = 300, message = "Nhieu hon 300")
+    @Pattern(regexp = "[a-zA-Z0-9]+",message = "Không chứa các kí tự đặc biệt như @ ; , . = - + , ….")
     private String singer;
+    @NotEmpty
+    @Size(max = 300, message = "Nhieu hon 300")
     private String genre;
     private String link;
 

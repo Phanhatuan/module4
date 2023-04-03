@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/song")
@@ -26,7 +29,10 @@ public class SongController {
         return "create";
     }
     @PostMapping("/save")
-    public String doCreate(@ModelAttribute(name = "song") Song song, Model model, RedirectAttributes rd){
+    public String doCreate(@Valid @ModelAttribute(name = "song") Song song, BindingResult bindingResult, RedirectAttributes rd){
+        if (bindingResult.hasErrors()){
+            return "create";
+        }
         songService.create(song);
         rd.addFlashAttribute("message", "Thêm mới thành công");
         return "redirect:/song";
